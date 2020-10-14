@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;0,600;0,700;1,300;1,400;1,700&display=swap');
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+#main {
+    background-color: #f2f9ff;
+    /*border-radius: 5px;*/
+    padding: 15px;
+    margin: 20px 8px 0px 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+@media (max-width: 460px) {
+    #main {
+        margin: 0 0;
+    }
+}
+
+#img-caption {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #697380;
+}
+
+figure {
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #303030;
+}
+
+@media (max-width: 460px) {
+    h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+
+    #main {
+        margin: 0 0;
+    }
+}
+
+h3 {
+    color: #627380;
+}
+
+#image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.informative-images img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+#img-div {
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+#img-caption {
+    margin: 15px 0 5px 0;
+    line-height: 0.96em;
+}
+
+#headline {
+    margin: 50px 0;
+}
+
+#tribute-info {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 25%;
+    margin: 50px 0;
+}
+
+.information {
+    color: #6e808f;
+    padding: 0 10rem 0 0;
+}
+
+.informative-images {
+    text-align: center;
+    padding: 5px;
+}
+
+.informative-images>div {
+    margin: 8px 0;
+    color: #627580;
+    background-color: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+@media (max-width: 1280px) {
+    .information {
+        padding: 0;
+    }
+}
+
+@media (max-width: 1060px) {
+    .informative-images>div {
+        font-size: 1.5rem;
+    }
+
+    .information {
+        padding: 0;
+    }
+}
+
+@media (max-width: 960px) {
+    #tribute-info {
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    #main {
+        margin: 0 0;
+    }
+
+    .information {
+        padding: 0;
+    }
+
+    .informative-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.3em;
+    }
+
+    .informative-images>div {
+        font-size: 1.4rem;
+        padding: 0 0;
+    }
+
+    .information {
+        padding: 0 0 0 0;
+    }
+}
+
+@media (max-width: 760px) {
+    #tribute-info {
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    #main {
+        margin: 0 0;
+    }
+
+    .informative-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.3em;
+    }
+
+    .informative-images>div {
+        font-size: 1.4rem;
+        padding: 0 0;
+    }
+
+    .information {
+        padding: 0 0 0 0;
+    }
+}
+
+.informative-images>div:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    transform: translateY(-2px);
+    transition: all ease 0.3s;
+}
+
+a {
+    color: #a3b0b5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #a3b0b5;
+}
+
+.single-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+@media (max-width: 560px) {
+    .single-footer {
+        display: block;
+    }
+}
+
+.footer-wrapper {
+    background-color: #273d4f;
+    color: #a7b7c4;
+}
+
+.single-footer>div:nth-child(1) {
+    color: black;
+}
+
+a:nth-child(1):hover {
+    color: black;
+}
+
+a:nth-child(2):hover {
+    color: #6bd6ff;
+}
+
+.links * {
+    margin: 0 1rem;
+}
+
+#fcc-link {
+    color: black;
+}
+
+#fcc-link:hover {
+    text-decoration: underline;
+}
+
+#tribute-link {
+    color: #477ca7;
+    text-decoration: underline;
+}
