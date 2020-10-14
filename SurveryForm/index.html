@@ -5,14 +5,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>FCC: Survey Form Project</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <div class="container">
         <header class="header">
-            <h1 id="title">Fantastic Survey Form</h1>
-            <p id="description">The is my fantastic survey form</p>
+            <div class="column-header">
+                <h1 id="title">Learner User Experience Survey</h1>
+                <p id="description">We would like to know a little about your experience.
+                    Thank you for taking the time to help us improve the platform.
+                </p>
+            </div>
+            <div class="column-image">
+                <div class="image-div">
+                    <img src="./download.png" alt="">
+                </div>
+            </div>
         </header>
         <form id="survey-form">
             <div class="form-group">
@@ -24,29 +33,71 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="age" id="age-label">Age(optional)</label>
-                <input type="number" id="age" class="form-control" min="18" max="65" placeholder="Age">
+                <label for="number" id="number-label">Age (optional)</label>
+                <input type="number" id="number" class="form-control" min="18" max="65" placeholder="Age">
             </div>
             <div class="form-group">
-                <p>Which option best describes your current role?</p>
+                <p>How experienced you are in programming</p>
                 <select id="dropdown" name="role" class="form-control" required>
-                    <option disabled selected value>Select current role</option>
-                    <option value="student">Student</option>
-                    <option value="job">Full Time Job</option>
-                    <option value="learner">Full Time Learner</option>
-                    <option value="preferNo">Prefer not to say</option>
-                    <option value="other">Other</option>
+                    <option disabled selected value>Select your expertise</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="professional">Professional</option>
+                    <option value="expert">Expert</option>
+                    <option value="god-level">God Level</option>
+                </select>
+            </div>
+            <!-- Favorite feature -->
+            <div class="form-group">
+                <p>
+                    What was your favorite feature of this course?
+                </p>
+                <select id="most-like" name="mostLike" class="form-control" required>
+                    <option disabled selected value>Select an option</option>
+                    <option value="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="openSource">Open Source</option>
                 </select>
             </div>
             <!-- Radio buttons -->
             <div class="form-group">
-            	<label><input type="radio" name="user-recommend" value="definitely" class="input-radio">Definitely</label>
-            	<label><input type="radio" name="user-recommend" value="maybe" class="input-radio">Maybe</label>
-            	<label><input type="radio" name="user-recommend" value="not-sure" class="input-radio">Not Sure</label>
+                <p>Would you recommend this course to someone you know?</p>
+                <label><input type="radio" name="user-recommend" value="definitely" class="input-radio">Definitely</label>
+                <label><input type="radio" name="user-recommend" value="maybe" class="input-radio">Maybe</label>
+                <label><input type="radio" name="user-recommend" value="not-sure" class="input-radio">Not Sure</label>
+                <label><input type="radio" name="user-recommend" value="never" class="input-radio">Never in a million years</label>
             </div>
-            <div class="form-group"></div>
+            <div class="form-group">
+                <p>What would you like to see improved (Check all that apply)</p>
+                <label>
+                    <input type="checkbox" value="projects" name="prefer" class="input-checkbox">Projects
+                </label>
+                <label>
+                    <input type="checkbox" value="articles" name="prefer" class="input-checkbox">Articles
+                </label>
+                <label>
+                    <input type="checkbox" value="notes" name="prefer" class="input-checkbox">Notes
+                </label>
+                <label>
+                    <input type="checkbox" value="all-good" name="prefer" class="input-checkbox">All Good
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Any comments or Suggestions?</p>
+                <textarea name="comments" id="input-textarea" clas="comment" placeholder="Drop your comment here..."></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">Submit</button>
+            </div>
         </form>
     </div>
+    <footer>
+        <div class="footer-wrapper">
+            <p>This is <a href="https://twitter.com/Aarsen1c" target="_blank">@Arsen1c's</a> submisssion for Survey Form project on <a href="https://freeCodeCamp.org">freeCodeCamp</a></p>
+        </div>
+    </footer>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
 </html>
