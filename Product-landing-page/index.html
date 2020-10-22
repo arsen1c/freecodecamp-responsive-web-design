@@ -2,36 +2,40 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Product Landing Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <header id="header">
-        <div class="header-img">
-            <img src="./img/felix.png" alt="" class="logo-img" width=200px height=50px>
+        <div id="logo-img">
+            <img src="./img/felix.png" alt="company-logo" id="header-img" width=200px height=50px>
         </div>
-        <div class="nav-bar">
-            <ul class="nav-links">
-                <li class="nav-link"><a href="#about">About</a></li>
-                <li class="nav-link"><a href="#features">Features</a></li>
-                <li class="nav-link"><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+        <nav id="nav-bar">
+            <a href="#about" class="nav-link">Why</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+        </nav>
     </header>
     <main>
+        <!-- HOME -->
         <section id="home">
             <div class="left">
                 <h1>Lorem ipsum, dolor sit amet.</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repudiandae voluptatibus id facilis praesentium aliquid!</p>
+                <button class="download-btn">
+                    Download
+                </button>
             </div>
             <div class="right">
                 <img src="http://paul-themes.com/html/morris/demo/img/1-375x753.png" class="hero-img" width=260 height=400></img>
             </div>
         </section>
+        <!-- ABOUT -->
         <section id="about">
-            <h2>Meet Felix</h2>
+            <h2 class="sub-heading">Meet Felix</h2>
             <p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Quam fugiat, tempora. Velit commodi, nulla quam?</p>
             <div class="container">
                 <div class="card">
@@ -65,12 +69,74 @@
         </section>
         <section id="features">
             <div class="feature-info">
-                <h3>Felix is with you everywhere</h3>
+                <h3 class="sub-heading">Felix is with you everywhere</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, quae. Dolore error laudantium facere totam eos assumenda, obcaecati quisquam, tempora omnis fugit, veritatis esse deleniti rem, ducimus culpa repellendus sint. Eveniet ullam saepe, vel illum? Laboriosam consectetur autem ex expedita, numquam sequi libero corporis possimus fugit, culpa, nihil inventore unde!</p>
             </div>
             <iframe id="video" height=315 width="620px" src="https://www.youtube.com/embed/ANwf8AE3_d0?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen></iframe>
         </section>
-        
+        <section id="pricing">
+            <div class="price-card ">
+                <h3 class="pack-basic">
+                    Basics
+                </h3>
+                <div class="price-content">
+                    <h4 class="price">
+                        FREE
+                    </h4>
+                    <p>Enhanced Security</p>
+                    <p>No Time Tracking</p>
+                    <p>Enhanced Security</p>
+                    <button class="planbtn">Select Plan</button>
+                </div>
+            </div>
+            <div class="price-card ">
+                <h3 class="pack-optimal">
+                    Optimal
+                </h3>
+                <div class="price-content">
+                    <h4 class="price">
+                        10$
+                    </h4>
+                    <p>Enhanced Security</p>
+                    <p>No Time Tracking</p>
+                    <p>Enhanced Security</p>
+                    <button class="planbtn planbtn-optimal">Select Plan</button>
+                </div>
+            </div>
+            <div class="price-card ">
+                <h3 class="pack-premium">
+                    Premium
+                </h3>
+                <div class="price-content">
+                    <h4 class="price">
+                        20$
+                    </h4>
+                    <p>Enhanced Security</p>
+                    <p>No Time Tracking</p>
+                    <p>Enhanced Security</p>
+                    <button class="planbtn">Select Plan</button>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-container">
+                    <form action="https://www.freecodecamp.com/email-submit" id="form">
+                        <div class="form-group">
+                            <input name="email" type="email" id="email" class="form-control" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-vector">
+                    <img src="./img/contact_us.png" alt="contact-logo" width=800 class="contact-logo">
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 
