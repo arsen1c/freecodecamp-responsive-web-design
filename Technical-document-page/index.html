@@ -1,41 +1,114 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>FCC: Technical Document Project</title>
-	<link rel="stylesheet" href="./style.css">
+    <title>FCC: Technical Document Project</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
+    <nav id="navbar">
+        <header>
+            <img src="./img/socketio.png" alt="" class="socketio-icon" width="100" height="100">
+            <h1><u>socket.io</u></h1>
+        </header>
+        <ul class="nav-ul">
+            <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+            <li><a href="#what_is_socket.io" class="nav-link">What is socket.io</a></li>
+            <li><a href="#how_does_that_work" class="nav-link">How does that work</a></li>
+            <li><a href="#setting_up_the_server" class="nav-link">Setting up server</a></li>
+            <li><a href="#serving_html" class="nav-link">Serving HTML</a></li>
+            <li><a href="#integrating_socket.io" class="nav-link">Integrating socket.io</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <div class="section-div">
+            <section class="main-section" id="Introduction">
+                <header>Introduction</header>
+                <article>
+                    <p>
+                        Writing a chat application with popular web applications stacks like LAMP (PHP) has normally been very hard. It involves polling the server for changes, keeping track of timestamps, and it’s a lot slower than it should be.
+                        Sockets have traditionally been the solution around which most real-time chat systems are architected, providing a bi-directional communication channel between a client and a server.
+                    </p>
+                    <p>This means that the server can push messages to clients. Whenever you write a chat message, the idea is that the server will get it and push it to all other connected clients.</p>
+                </article>
+            </section>
+            <!-- What is socketio -->
+            <section class="main-section" id="what_is_socket.io">
+                <header>What Socket.io is</header>
+                <article>
+                    <p class="br">Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server. It consists of:</p>
+                    <ul>
+                        <li>A Node.js server</li>
+                        <li>A Javascript client library for the browser (which can be also run from Node.js)</li>
+                    </ul>
+                </article>
+            </section>
+            <!-- how does socket.io work -->
+            <section class="main-section" id="how_does_that_work">
+                <header>How does that work?</header>
+                <article>
+                    <p>The client will try to establish a WebSocket connection if possible, and will fall back on HTTP long polling if not.</p>
+                    <p>WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser. More information can be found <a href="https://en.wikipedia.org/wiki/WebSocket">here</a>.</p>
+                </article>
+            </section>
+            <!-- Minimal Example -->
+            <section class="main-section" id="setting_up_the_server">
+                <header>Setting Up the Server</header>
+                <article>
+                    Dependencies: <code class="inline-code">express</code>
+                    <div class="npm-code">$ npm install express@4.15.2</div>
+                    <p>
+                        Once it’s installed we can create an index.js file that will set up our application.
+                    </p>
+                    <code class="code">
+                        <span class="file">index.js</span>
+                        <keyword>var</keyword> app = <keyword2>require</keyword2>(<string>'express'</string>)();
+                        <keyword>var</keyword> http = <keyword2>require</keyword2>(<string>'http'</string>).<keyword>createServer</keyword>(app);
+                        app.<identifier>get</identifier>(<string>'/'</string>, (<arg>req</arg>, <arg>res</arg>) => {
+                        &nbsp; res.<identifier>send</identifier>(<string>'hello world'</string>);
+                        });
+                        http.<keyword>listen</keyword>(3000, () => {
+                        &nbsp; <console>console</console>.<keyword2>log</keyword2>(<string>'listening on *:3000'</string>);
+                        });
+                    </code>
+                    <p>
+                        This means that it:
+                        <ul class="br">
+                            <li>Express initializes <code class="inline-code">app</code> to be a function handler that you can supply to an HTTP server (as seen in line 2).</li>
+                            <li>We define a route handler <code class="inline-code">/</code> that gets called when we hit our website home.</li>
+                            <li>We make the http server listen on port 3000.</li>
+                        </ul>
+                        If you run node <code class="inline-code"> index.js</code> you should see the following:
+                    </p>
+                    <img src="https://socket.io/images/chat-1.png" alt="" class="indexjs">
+                    <p>
+                        And if you point your browser to <code class="inline-code">http://localhost:3000</code>:
+                    </p>
+                    <img src="https://socket.io/images/chat-2.png" alt="" class="localhost">
+                </article>
+            </section>
+            <!-- Serving HTML -->
+            <section class="main-section" id="serving_html">
+                <header>Serving HTML</header>
+                <article>
+                    <p class="br">
+                        So far in <code class="inline-code">index.js</code> we’re calling <code class="inline-code">res.send</code> and passing it a string of HTML. Our code would look very confusing if we just placed our entire application’s HTML there, so instead we’re going to create a <code class="inline-code">index.html</code> file and serve that instead.
+                    </p>
+                    <p>Let’s refactor our route handler to use <code class="inline-code">sendFile</code> instead.</p>
+                    <code class="code">
+                        <span class="file">index.js</span>
+                        app.<identifier>get</identifier>('/', (<arg>req</arg>, <arg>res</arg>) => {
+                        res.<identifier>sendFile</identifier>(__dirname + <string>'/index.html'</string>);
+                        });
+                    </code>
+                    <p class="br">Put the following in your <code class="inline-code">index.html</code> file:</p>
+                    <script src="https://emgithub.com/embed.js?target=&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
 
-	<nav id="navbar">
-
-		<header>
-			<img src="./img/socketio.png" alt="" class="socketio-icon" width="100" height="100">
-			<h1>SocketIO</h1>
-		</header>
-		<ul>
-			<li><a href="#Introduction" class="nav-link">Introduction</a></li>
-			<li><a href="#what_is_socket.io" class="nav-link">What is Socket.IO</a></li>
-			<li><a href="#minimal_example" class="nav-link">Minimal Example</a></li>
-			<li><a href="#serving_html" class="nav-link">Serving HTML</a></li>
-			<li><a href="#integrating_socket.io" class="nav-link">Integrating Socket.IO</a></li>
-		</ul>
-	</nav>
-
-	<main id="main-doc">
-		<div class="section-div">
-			<section class="main-section" id="Introduction">
-			<header>Introduction</header>
-			<article>
-				<p>
-					Sockets have traditionally been the solution around which most real-time chat systems are architected, providing a bi-directional communication channel between a client and a server contratry to polling.
-				</p><br>
-				<p>
-					Using sockets, a server can push messages to clients. Whenever you write a chat message, the idea is that the server will get it and push it to all other connected clients.
-				</p>
-			</article>
-		</section>
-		</div>
-	</main>
-
+                </article>
+            </section>
+        </div>
+    </main>
 </body>
+
 </html>
