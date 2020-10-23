@@ -81,11 +81,15 @@
                         </ul>
                         If you run node <code class="inline-code"> index.js</code> you should see the following:
                     </p>
-                    <img src="https://socket.io/images/chat-1.png" alt="" class="indexjs">
+                    <div class="img-div">
+                        <img src="https://socket.io/images/chat-1.png" alt="" class="indexjs">
+                    </div>
                     <p>
                         And if you point your browser to <code class="inline-code">http://localhost:3000</code>:
                     </p>
-                    <img src="https://socket.io/images/chat-2.png" alt="" class="localhost">
+                    <div class="img-div">
+                        <img src="https://socket.io/images/chat-2.png" alt="" class="localhost">
+                    </div>
                 </article>
             </section>
             <!-- Serving HTML -->
@@ -103,8 +107,47 @@
                         });
                     </code>
                     <p class="br">Put the following in your <code class="inline-code">index.html</code> file:</p>
-                    <script src="https://emgithub.com/embed.js?target=&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-
+                    <!-- Ref: https://emgithub.com -->
+                    <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fastrix29%2Fresponsive-web-design-fcc%2Fblob%2Fmaster%2FTechnical-document-page%2Fsnippets%2Findex.html&style=github-gist&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+                    <p>If you restart the process (by hitting Control+C and running node index.js again) and refresh the page it should look like this:</p>
+                    <div class="img-div">
+                        <img src="https://socket.io/images/chat-3.png" alt="" class="localhost">
+                    </div>
+                </article>
+            </section>
+            <!-- Integrating Socket.io -->
+            <section class="main-section io" id="integrating_socket">
+                <header>Integrating Socket.io</header>
+                <article>
+                    <p>
+                        Socket.IO is composed of two parts:
+                        <ul>
+                            <li>A server that integrates with (or mounts on) the Node.JS HTTP Server socket.io</li>
+                            <li>A client library that loads on the browser side socket.io-client</li>
+                        </ul>
+                        During development, socket.io serves the client automatically for us, as we’ll see, so for now we only have to install one module:
+                    </p>
+                    <br>
+                    Dependencies: <code class="inline-code">socket.io</code>
+                    <div class="npm-code">$ npm install socket.io</div>
+                    That will install the module and add the dependency to <code class="inline-code">package.json</code>. Now let’s edit <code class="inline-code">index.js</code> to add it:
+                    <code class="code">
+                    	<span class="file">index.js</span>
+                        <keyword>var</keyword> app = <keyword2>require</keyword2>(<string>'express'</string>)();
+                        <keyword>var</keyword> http = <keyword2>require</keyword2>(<string>'http'</string>).<keyword>createServer</keyword>(app);
+                        <keyword>var</keyword> io = <keyword2>require</keyword2>(<string>'socket.io'</string>)(http);
+                        app.<identifier>get</identifier>(<string>'/'</string>, (<arg>req</arg>, <arg>res</arg>) => {
+                        &nbsp; res.<keyword>sendFile</keyword>(__dirname + <string>'/index.html'</string>);
+                        });
+                        io.<keyword>on</keyword>(<string>'connection'</string>, (socket) => {
+                        &nbsp; <console>console</console>.<keyword2>log</keyword2>(<string>'a user connected'</string>);
+                        });
+                        http.<keyword>listen</keyword>(3000, () => {
+                        &nbsp; <console>console</console>.<keyword2>log</keyword2>(<string>'listening on *:3000'</string>);
+                        });
+                    </code>
+                    <p class="br">Notice that I initialize a new instance of socket.io by passing the http (the HTTP server) object. Then I listen on the connection event for incoming sockets and log it to the console.</p>
+                    <p>Now in <code class="inline-code">index.html</code> add the following snippet before the </body> (end body tag):</p>
                 </article>
             </section>
         </div>

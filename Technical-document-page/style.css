@@ -196,7 +196,11 @@ arg {
 img {
 	max-width: 100%;
 	height: auto;
-	display: block;
+	/*display: block;*/
+}
+
+.img-div {
+	text-align: center;
 }
 
 .html-css {
