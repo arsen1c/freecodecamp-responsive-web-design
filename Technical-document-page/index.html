@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>FCC: Technical Document Project</title>
-    <link rel="stylesheet" href="./style.css">
+	<title>FCC: Technical Document</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
     <nav id="navbar">
         <header>
-            <img src="./img/socketio.png" alt="" class="socketio-icon" width="100" height="100">
+            <img src="https://github.com/astrix29/responsive-web-design-fcc/blob/master/Technical-document-page/img/socketio.png?raw=true" alt="" class="socketio-icon" width="100" height="100">
             <h1><u>socket.io</u></h1>
         </header>
+        <hr>
         <ul class="nav-ul">
             <li><a href="#Introduction" class="nav-link">Introduction</a></li>
-            <li><a href="#what_is_socket.io" class="nav-link">What is socket.io</a></li>
-            <li><a href="#how_does_that_work" class="nav-link">How does that work</a></li>
-            <li><a href="#setting_up_the_server" class="nav-link">Setting up server</a></li>
-            <li><a href="#serving_html" class="nav-link">Serving HTML</a></li>
-            <li><a href="#integrating_socket.io" class="nav-link">Integrating socket.io</a></li>
+            <li><a href="#What_Socket.io_is" class="nav-link">What Socket.io is</a></li>
+            <li><a href="#How_does_that_work?" class="nav-link">How does that work?</a></li>
+            <li><a href="#Setting_up_the_server" class="nav-link">Setting up the server</a></li>
+            <li><a href="#Serving_HTML" class="nav-link">Serving HTML</a></li>
+            <li><a href="#Integrating_Socket.io" class="nav-link">Integrating Socket.io</a></li>
         </ul>
+        <footer>
+        	<div class="footer-wrapper">
+        		<p>By<a href="twitter.com/Aarsen1c" target="_blank">@Aarsen1c</a></p>
+        	</div>
+        </footer>
     </nav>
     <main id="main-doc">
         <div class="section-div">
@@ -34,7 +38,7 @@
                 </article>
             </section>
             <!-- What is socketio -->
-            <section class="main-section" id="what_is_socket.io">
+            <section class="main-section" id="What_Socket.io_is">
                 <header>What Socket.io is</header>
                 <article>
                     <p class="br">Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server. It consists of:</p>
@@ -45,15 +49,15 @@
                 </article>
             </section>
             <!-- how does socket.io work -->
-            <section class="main-section" id="how_does_that_work">
+            <section class="main-section" id="How_does_that_work?">
                 <header>How does that work?</header>
                 <article>
                     <p>The client will try to establish a WebSocket connection if possible, and will fall back on HTTP long polling if not.</p>
-                    <p>WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser. More information can be found <a href="https://en.wikipedia.org/wiki/WebSocket">here</a>.</p>
+                    <p>WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser. More information can be found <a href="https://en.wikipedia.org/wiki/WebSocket" class="ref-link" target="_blank">here</a>.</p>
                 </article>
             </section>
             <!-- Minimal Example -->
-            <section class="main-section" id="setting_up_the_server">
+            <section class="main-section" id="Setting_up_the_server">
                 <header>Setting Up the Server</header>
                 <article>
                     Dependencies: <code class="inline-code">express</code>
@@ -93,7 +97,7 @@
                 </article>
             </section>
             <!-- Serving HTML -->
-            <section class="main-section" id="serving_html">
+            <section class="main-section" id="Serving_HTML">
                 <header>Serving HTML</header>
                 <article>
                     <p class="br">
@@ -116,7 +120,7 @@
                 </article>
             </section>
             <!-- Integrating Socket.io -->
-            <section class="main-section io" id="integrating_socket">
+            <section class="main-section io" id="Integrating_Socket.io">
                 <header>Integrating Socket.io</header>
                 <article>
                     <p>
@@ -148,10 +152,36 @@
                     </code>
                     <p class="br">Notice that I initialize a new instance of socket.io by passing the http (the HTTP server) object. Then I listen on the connection event for incoming sockets and log it to the console.</p>
                     <p>Now in <code class="inline-code">index.html</code> add the following snippet before the </body> (end body tag):</p>
+                    <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fastrix29%2Fresponsive-web-design-fcc%2Fblob%2Fmaster%2FTechnical-document-page%2Fsnippets%2Fsnippet_2.html&style=github-gist&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+
+                    <p class="br">That’s all it takes to load the socket.io-client, which exposes an io global (and the endpoint GET /socket.io/socket.io.js), and then connect.</p>
+                    <p class="br">If you now restart the process (by hitting Control+C and running node index.js again) and then refresh the webpage you should see the console print “a user connected”.</p>
+                    <p>Try opening several tabs, and you’ll see several messages.</p>
+                    <div class="img-div">
+                    	<img src="https://socket.io/images/chat-4.png" alt="">
+                    </div>
+
+                    <p>Each socket also fires a special disconnect event:</p>
+                    <code class="code">
+                    	<span class="file">index.js</span>
+                    	io.<keyword2>on</keyword2>(<string>'connection'</string>, (socket) => {
+						&nbsp; <console>console</console>.<keyword2>log</keyword2>(<string>'a user connected'</string>);
+						&nbsp; socket.<keyword2>on</keyword2>(<string>'disconnect'</string>, () => {
+						&nbsp;&nbsp;&nbsp; <console>console</console>.<keyword2>log</keyword2>(<string>'user disconnected'</string>);
+						&nbsp;});
+						});
+                    </code>	
+                    <p>Then if you refresh a tab several times you can see it in action.</p>
+
+                    <div class="img-div">
+                    	<img src="https://socket.io/images/chat-5.png" alt="">
+                    </div>
                 </article>
             </section>
         </div>
+        <footer>
+        	Created By: <a href="twitter.com/Aarsen1c"></a>
+        </footer>
     </main>
 </body>
-
 </html>
