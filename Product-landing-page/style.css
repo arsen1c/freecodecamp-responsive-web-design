@@ -102,6 +102,9 @@ body, html {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
+
+
+
 	ul {
 		flex-wrap: wrap;
 		justify-content: center;
@@ -112,7 +115,10 @@ body, html {
 	#nav-bar > a{
 		margin-top: 1rem;
 	}
-
+  
+  #nav-bar {
+    display: block;
+  }
 }
 
 /*=========== Hash Links ===========*/
@@ -148,6 +154,14 @@ a {
 		margin-bottom: 4rem;
 	}
 }
+
+@media (max-width: 520px) {
+  #nav-bar > .nav-link {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
 /* ============ All About About ============*/
 #about {
 	/*margin: 10rem 0 5rem 0;*/

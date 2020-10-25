@@ -225,3 +225,10 @@ img {
 .contact-links *:hover {
   color: #e69192;
 }
+
+@media (max-width: 520px) {
+  #contact {
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
